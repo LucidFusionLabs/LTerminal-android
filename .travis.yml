@@ -1,0 +1,23 @@
+language: android
+
+android:
+  components:
+    - build-tools-23.0.3
+    - android-23
+
+before_install:
+  - echo $TRAVIS_OS_NAME
+  - echo $LANG
+  - echo $LC_ALL
+
+before_script:
+  - echo "before_script"
+
+script:
+  - echo "script"
+
+after_success:
+  - echo "success"
+
+after_failure:
+  - echo "failure"
