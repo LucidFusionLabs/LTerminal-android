@@ -5,6 +5,14 @@ android:
     - build-tools-23.0.3
     - android-23
 
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports
+    packages:
+      - cmake
+      - cmake-data
+
 before_install:
   - echo $TRAVIS_OS_NAME
   - echo $LANG
