@@ -18,10 +18,10 @@ addons:
 
 before_install:
   - echo $TRAVIS_OS_NAME
-  - echo $LANG
-  - echo $LC_ALL
+  - echo ${TRAVIS_BUILD_DIR}
 
 before_script:
+  - pwd
   - wget https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
   - unzip -q android-ndk-r13b-linux-x86_64.zip
   - android-ndk-r13b/build/tools/make_standalone_toolchain.py --arch arm --api 9 --install-dir android-toolchain
@@ -34,7 +34,7 @@ script:
   - mkdir android && cd android
   - cmake -DCMAKE_BUILD_TYPE=Release -DLFL_ANDROID_SDK=${TRAVIS_BUILD_DIR}/android-sdk -DLFL_ANDROID_NDK=${TRAVIS_BUILD_DIR}/android-ndk-r13b -DLFL_ANDROID_ROOT=${TRAVIS_BUILD_DIR}/android-toolchain -DLFL_GRADLE_BIN=${GRADLE_USER_HOME}/bin/gradle -DCMAKE_TOOLCHAIN_FILE=../core/CMake/AndroidToolchain.cmake ..
   - cd LTerminal
-  - make
+  - VERBOSE=1 make
 
 after_success:
   - echo "success"
