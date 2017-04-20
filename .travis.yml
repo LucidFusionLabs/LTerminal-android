@@ -28,7 +28,7 @@ before_script:
 
 script:
   - mkdir linux && cd linux
-  - cmake -DCMAKE_TOOLCHAIN_FILE=../core/CMake/LinuxToolchain.cmake -DLFL_CPP11=1 ..
+  - CC=gcc-4.8 CXX=g++-4.8 cmake -DCMAKE_TOOLCHAIN_FILE=../core/CMake/LinuxToolchain.cmake -DLFL_CPP11=1 ..
   - make flatc
   - cd ..
   - mkdir android && cd android
