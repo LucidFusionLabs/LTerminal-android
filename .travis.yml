@@ -33,6 +33,8 @@ script:
   - cd ..
   - mkdir android && cd android
   - cmake -DCMAKE_BUILD_TYPE=Release -DLFL_ANDROID_SDK=${TRAVIS_BUILD_DIR}/android-sdk -DLFL_ANDROID_NDK=${TRAVIS_BUILD_DIR}/android-ndk-r13b -DLFL_ANDROID_ROOT=${TRAVIS_BUILD_DIR}/android-toolchain -DLFL_GRADLE_BIN=${GRADLE_USER_HOME}/bin/gradle -DCMAKE_TOOLCHAIN_FILE=../core/CMake/AndroidToolchain.cmake ..
+  - cd LTerminal
+  - make
 
 after_success:
   - echo "success"
