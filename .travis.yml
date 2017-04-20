@@ -22,13 +22,13 @@ before_install:
 
 before_script:
   - pwd
+  - ls -aFld
   - wget https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
   - unzip -q android-ndk-r13b-linux-x86_64.zip
   - android-ndk-r13b/build/tools/make_standalone_toolchain.py --arch arm --api 9 --install-dir android-toolchain
+  - ls -l android-toolchain/sysroot/usr/include/stdlib.h
 
 script:
-  - pwd
-  - find .
   - mkdir linux && cd linux
   - CC=gcc-4.8 CXX=g++-4.8 cmake -DCMAKE_TOOLCHAIN_FILE=../core/CMake/LinuxToolchain.cmake -DLFL_CPP11=1 ..
   - make flatc
