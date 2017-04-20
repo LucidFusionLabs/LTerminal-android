@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 include(core/CMake/LFLOS.cmake)
 
 set(LFL_FLATBUFFERS 1)
+set(LFL_FREETYPE 1)
 set(LFL_PNG 1)
 set(LFL_SQLCIPHER 1)
 set(LFL_FABRIC 1)
