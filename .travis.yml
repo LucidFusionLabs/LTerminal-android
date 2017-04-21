@@ -39,6 +39,8 @@ script:
   - cmake -DCMAKE_BUILD_TYPE=Release -DLFL_GRADLE_BIN=${GRADLE_USER_HOME}/bin/gradle -DCMAKE_TOOLCHAIN_FILE=../core/CMake/AndroidToolchain.cmake ..
   - cd LTerminal
   - make
+  - cd ../../LTerminal/LTerminal-android
+  - gradle assembleRelease
 
 after_success:
   - echo "success"
