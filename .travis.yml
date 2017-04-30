@@ -26,6 +26,8 @@ before_install:
 
 before_script:
   - pwd
+  - mkdir -p ${ANDROID_HOME}/licenses
+  - cp core/script/android-sdk-license ${ANDROID_HOME}/licenses
   - wget https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
   - unzip -q android-ndk-r13b-linux-x86_64.zip -d ${HOME}
   - export ANDROID_NDK_HOME=${HOME}/android-ndk-r13b
