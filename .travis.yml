@@ -40,14 +40,14 @@ script:
   - make flatc
   - cd ../LTerminal/LTerminal-android
   - ./gradlew assembleRelease
-  - cat /home/travis/build/LucidFusionLabs/LTerminal-android/LTerminal/LTerminal-android/.externalNativeBuild/cmake/release/armeabi-v7a/core/imports/sqlcipher/src/sqlcipher-stamp/*
-  - cat /home/travis/build/LucidFusionLabs/LTerminal-android/LTerminal/LTerminal-android/.externalNativeBuild/cmake/release/armeabi-v7a/core/imports/sqlcipher/src/sqlcipher-build/config.log
 
 after_success:
   - echo "success"
 
 after_failure:
   - echo "failure"
+  - cat /home/travis/build/LucidFusionLabs/LTerminal-android/LTerminal/LTerminal-android/.externalNativeBuild/cmake/release/armeabi-v7a/core/imports/sqlcipher/src/sqlcipher-stamp/*
+  - cat /home/travis/build/LucidFusionLabs/LTerminal-android/LTerminal/LTerminal-android/.externalNativeBuild/cmake/release/armeabi-v7a/core/imports/sqlcipher/src/sqlcipher-build/config.log
 
 env:
   global:
