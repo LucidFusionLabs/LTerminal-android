@@ -43,13 +43,13 @@ before_script:
   - unzip -q android-ndk-r13b-linux-x86_64.zip -d ${HOME}
   - export ANDROID_NDK_HOME=${HOME}/android-ndk-r13b
   - openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in LTerminal/LTerminal-android/LTerminal_Distribution.keystore.enc -d -a -out LTerminal/LTerminal-android/LTerminal_Distribution.keystore
-
-script:
   - mkdir linux && cd linux
   - CC=gcc-4.8 CXX=g++-4.8 cmake -DCMAKE_TOOLCHAIN_FILE=../core/CMake/LinuxToolchain.cmake -DLFL_CPP11=1 ..
   - make flatc
   - cp core/imports/flatbuffers/flatc ${HOME}/bin
   - cd ../LTerminal/LTerminal-android
+
+script:
   - travis_wait 40 ./gradlew assemble
 
 after_success:
