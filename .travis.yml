@@ -34,7 +34,7 @@ before_install:
   - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
   - rvm install 2.2.5
   - rvm use 2.2.5
-  - sudo gem install fastlane
+  - gem install fastlane
 
 before_script:
   - mkdir -p ${HOME}/bin
