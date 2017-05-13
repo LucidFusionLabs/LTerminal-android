@@ -1,0 +1,15 @@
+desc "Build and submit to Google Play Alpha"
+lane :submit_playalpha do
+
+  gradle(
+    task: "assemble",
+    build_type: "Release",
+    project_dir: "LTerminal/LTerminal-android"
+  )
+
+  supply(
+    track: "alpha",
+    apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+  )
+
+end

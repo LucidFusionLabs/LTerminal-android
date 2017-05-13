@@ -25,8 +25,7 @@ addons:
       description: "Android SSH/VNC client with advanced features."
     notification_email: build@lucidfusionlabs.com
     build_command_prepend: "./gradlew clean"
-    build_command: "./gradlew assemble"
-    branch_pattern: master
+    build_command: "./gradlew assembleDebug"
 
 before_install:
   - echo $TRAVIS_OS_NAME
@@ -43,6 +42,7 @@ before_script:
   - unzip -q android-ndk-r13b-linux-x86_64.zip -d ${HOME}
   - export ANDROID_NDK_HOME=${HOME}/android-ndk-r13b
   - openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in LTerminal/LTerminal-android/LTerminal_Distribution.keystore.enc -d -a -out LTerminal/LTerminal-android/LTerminal_Distribution.keystore
+  - openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in LTerminal/LTerminal-android/GooglePlayRelease.json.enc -d -a -out LTerminal/LTerminal-android/GooglePlayRelease.json
   - mkdir linux && cd linux
   - CC=gcc-4.8 CXX=g++-4.8 cmake -DCMAKE_TOOLCHAIN_FILE=../core/CMake/LinuxToolchain.cmake -DLFL_CPP11=1 ..
   - make flatc
@@ -50,7 +50,8 @@ before_script:
   - cd ../LTerminal/LTerminal-android
 
 script:
-  - travis_wait 40 ./gradlew assemble
+  - cd ../..
+  - fastlane submit_playalpha
 
 after_success:
   - echo "success"
