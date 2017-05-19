@@ -52,10 +52,10 @@ before_script:
 
 script:
   - cd ../..
+  - mkdir -p LTerminal/LTerminal-android/assets
+  - cp LTerminal/assets/* LTerminal/LTerminal-android/assets
   - fastlane submit_playalpha
-  - ls -l /home/travis/build/LucidFusionLabs/LTerminal-android/
-  - ls -l /home/travis/build/LucidFusionLabs/LTerminal-android/assets/
-  - find . /home/travis/build/LucidFusionLabs/LTerminal-android/res
+  - find .
   - unzip /home/travis/build/LucidFusionLabs/LTerminal-android/LTerminal/LTerminal-android/build/outputs/apk/LTerminal-android-release.apk
 
 after_success:
