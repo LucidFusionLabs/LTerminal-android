@@ -7,4 +7,9 @@ lane :submit_playalpha do
     project_dir: "LTerminal/LTerminal-android"
   )
 
+  supply(
+    track: "alpha",
+    apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+  )
+
 end

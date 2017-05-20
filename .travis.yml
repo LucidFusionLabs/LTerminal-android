@@ -49,6 +49,7 @@ before_script:
   - make flatc
   - cp core/imports/flatbuffers/flatc ${HOME}/bin
   - cd ../LTerminal/LTerminal-android
+  - ../../core/script/CopyAndroidPackageAssets.sh ../../core/app/shaders/default.* ../../core/app/assets/MenuAtlas* ../../core/app/assets/MobileAtlas* ../../core/app/shaders/shadertoy/*.frag ../../core/app/assets/VeraMoBd.*
 
 script:
   - cd ../..
