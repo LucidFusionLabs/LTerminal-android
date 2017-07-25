@@ -59,7 +59,6 @@ script:
 
 after_success:
   - echo "success"
-  - find . -name "*.txt"
 
 after_failure:
   - echo "failure"
