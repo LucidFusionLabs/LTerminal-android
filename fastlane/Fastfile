@@ -9,7 +9,7 @@ lane :submit_playalpha do
 
   supply(
     track: "alpha",
-    apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+    apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}",
     mapping: "LTerminal/LTerminal-android/build/outputs/mapping/release/mapping.txt"
   )
 
