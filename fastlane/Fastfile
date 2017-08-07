@@ -2,8 +2,7 @@ desc "Build and submit to Google Play Alpha"
 lane :submit_playalpha do
 
   gradle(
-    task: "assemble",
-    build_type: "Release",
+    task: "assembleRelease crashlyticsUploadSymbolsRelease",
     project_dir: "LTerminal/LTerminal-android"
   )
 
